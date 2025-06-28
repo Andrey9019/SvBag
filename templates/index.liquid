@@ -1,0 +1,21 @@
+<div>
+  <h1>Welcome to {{shop.name}} !</h1>
+<p>{{settings.welcome_message}} </p>
+
+ <div>{% for block in section.blocks %} 
+  <div>
+    {% case block.type %}
+      {% when 'text' %}
+        <div class="text-block">
+          {{ block.settings.text }}
+        </div>
+      {% when 'image' %}
+        <div class="image-block">
+          <img src="{{ block.settings.image | img_url: 'large' }}" alt="{{ block.settings.alt_text }}">
+        </div>
+    {% endcase %}
+  </div>
+{% endfor %} 
+</div>
+
+</div>
