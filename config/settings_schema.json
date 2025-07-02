@@ -44,5 +44,26 @@
         "info": "Descriptive text for the image (for accessibility and SEO)"
       }
     ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "t:settings_schema.social-media.settings.social_facebook_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_facebook_link.info"
+      },
+      {
+        "id": "twitter_url",
+        "type": "url",
+        "label": "Twitter URL"
+      },
+      {
+        "id": "instagram_url",
+        "type": "url",
+        "label": "Instagram URL"
+      }
+    ]
   }
 ]

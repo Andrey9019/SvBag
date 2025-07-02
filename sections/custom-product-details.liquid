@@ -1,0 +1,18 @@
+<div>
+  <p>custom product details section</p>
+  <h1 style="color: {{ section.settings.text_color }}">{{ product.title }}</h1>
+  <p>{{ product.description }}</p>
+</div>
+{% schema %}
+  {
+    "name": "Custom Product Details",
+    "settings": [
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default": "#000000"
+      }
+    ]
+  }
+{% endschema %}

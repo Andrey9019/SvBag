@@ -2,7 +2,7 @@
     <h1>{{ product.title }}</h1>
 <div>
 {%for image in product.images%}
-<img src="{{image |  image_url: 'large'}} alt="{{ image.alt | escape }}" class="product-image">
+<img src="{{image |  image_url: 'large'}}" alt="{{ image.alt | escape }}" class="product-image">
 {% endfor %}
 </div>
     <p>{{ product.description }}</p>
