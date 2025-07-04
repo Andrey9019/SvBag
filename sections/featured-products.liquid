@@ -1,0 +1,101 @@
+<div class="featured-products" style="background-color: {{section.settings.background_color}};">
+  <h2>{{ section.settings.title }}</h2>
+  {% if section.settings.layout == 'grid' %}
+    <div class="product-grid">
+      {% for product in section.settings.products %}
+        {% include 'product-item'
+          , product: product
+          , section: section %}
+      {% endfor %}
+    </div>
+  {% elsif section.settings.layout == 'carousel' %}
+    <div class="product-carousel">
+      {% for product in section.settings.products %}
+        {% include 'product-item'
+          , product: product
+          , section: section %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Featured Products",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Section Title",
+        "default": "Featured Products"
+      },
+      {
+        "id": "products",
+        "type": "product_list",
+        "label": "Select Products"
+      },
+      {
+        "id": "layout",
+        "type": "select",
+        "label": "Layout",
+        "default": "grid",
+        "options": [
+          {
+            "value": "grid",
+            "label": "Grid"
+          }, {
+            "value": "carousel",
+            "label": "Carousel"
+          }
+        ]
+      },
+      {
+        "id": "background_color",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#ffffff"
+
+      }, {
+        "id": "text_color",
+        "type": "color",
+        "label": "Text Color",
+        "default": "#000000"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Products",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  .featured-products {
+    padding: 20px;
+  }
+
+  .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .product-carousel {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .product-item {
+    width: 200px;
+    margin-bottom: 20px;
+    text-align: center;
+    flex: 0 0 auto;
+  }
+
+  .product-item img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
