@@ -1,4 +1,4 @@
-<div class="flex m-10 p-10 " >
+<div class="flex p-10 m-10 " >
   <h1 class="text">Welcome to {{ shop.name }} !</h1>
   <p>{{ settings.welcome_message }}</p>
 
@@ -46,22 +46,7 @@
     {% render 'image-with-alt' with article.image
       , size: "large" %}
   </div>
-  <div>
-    {% if settings.facebook_url != blank %}
-      {% render 'social-icon' with settings.facebook_url as url
-        , 'facebook' as name %}
-    {% endif %}
 
-    {% if settings.twitter_url != blank %}
-      {% render 'social-icon' with settings.twitter_url as url
-        , 'twitter' as name %}
-    {% endif %}
-
-    {% if settings.instagram_url != blank %}
-      {% render 'social-icon' with settings.instagram_url as url
-        , 'instagram' as name %}
-    {% endif %}
-  </div>
 
 
 </div>
