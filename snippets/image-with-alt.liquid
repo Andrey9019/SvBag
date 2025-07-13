@@ -1,0 +1,7 @@
+<img
+src="{{ image |  image_url: size }}"
+alt="{{ image.alt |  default: 'Image' |  escape  }}"
+loading="lazy"
+width="{{ image.width }}"
+height="{{ image.height }}"
+/>

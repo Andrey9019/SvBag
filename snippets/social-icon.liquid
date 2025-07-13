@@ -1,0 +1,16 @@
+<a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="social-icon">
+  {% case name %}
+    {% when 'facebook' %}
+      <i class="fab fa-facebook"></i>
+    {% when 'twitter' %}
+      <i class="fab fa-twitter"></i>
+    {% when 'instagram' %}
+      <i class="fab fa-instagram"></i>
+    {% when 'pinterest' %}
+      <i class="fab fa-pinterest"></i>
+    {% when 'youtube' %}
+      <i class="fab fa-youtube"></i>
+    {% else %}
+      <i class="fas fa-share-alt"></i>
+  {% endcase %}
+</a>

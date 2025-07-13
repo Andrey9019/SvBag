@@ -1,0 +1,12 @@
+<div >
+    <a href="{{ product.url }}">
+        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}">
+        <h3>{{ product.title | escape }}</h3>
+        <p >
+            {% if product.compare_at_price > product.price %}
+            <span >{{ product.compare_at_price | money }}</span>
+            {% endif %}
+            <span >{{ product.price | money }}</span>
+        </p>
+    </a>
+</div>

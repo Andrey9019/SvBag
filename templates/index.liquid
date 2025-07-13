@@ -1,0 +1,54 @@
+<div class="flex p-10 m-10 " >
+  <h1 class="text">Welcome to {{ shop.name }} !</h1>
+  <p>{{ settings.welcome_message }}</p>
+
+  <div>
+    {% for block in section.blocks %}
+      <div>
+        {% case block.type %}
+          {% when 'text' %}
+            <div class="text-block">
+              {{ block.settings.text }}
+            </div>
+          {% when 'image' %}
+            <div class="image-block">
+              <img src="{{ block.settings.image | img_url: 'large' }}" alt="{{ block.settings.alt_text }}">
+            </div>
+        {% endcase %}
+      </div>
+
+    {% endfor %}
+  </div>
+
+  <div>
+    <h2>Featured Products</h2>
+    {% for product in collection.products %}
+      {% render 'product-card' with product %}
+    {% endfor %}
+  </div>
+  <div class="flex ">
+    {% render 'button' with 'Add to Cart' as label
+      , 'submit' as type %}
+
+    {% render 'button' with 'View Details' as label
+      , 'button' as type
+      , 'secondary' as class %}
+
+    {% render 'button' with 'Out of Stock' as label
+      , 'button' as type
+      , disabled: true %}
+  </div>
+
+  <div>
+
+    {% render 'image-with-alt' with product.featured_image
+      , size: "medium" %}
+    {% render 'image-with-alt' with article.image
+      , size: "large" %}
+  </div>
+
+
+
+</div>
+
+<div> {% section 'featured-products' %} </div>

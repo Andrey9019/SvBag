@@ -1,0 +1,32 @@
+<div>
+    <h1>{{ collection.title }} castom colection</h1>
+    <p>{{ collection.description }}</p>
+    
+    <div class="collection-products">
+        {% for product in collection.products %}
+        <div class="product-card">
+            <a href="{{ product.url }}">
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}">
+            <h3>{{ product.title | escape }}</h3>
+            <p>
+                {% if product.compare_at_price > product.price %}
+                <span class="compare-at-price">{{ product.compare_at_price | money }}</span>
+                {% endif %}
+                <span class="price">{{ product.price | money }}</span>
+            </p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    
+    {% if collection.all_tags.size > 0 %}
+        <div class="collection-tags">
+        <h2>Tags</h2>
+        <ul>
+            {% for tag in collection.all_tags %}
+            <li><a href="{{ collection.url }}?constraint={{ tag }}">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+        </div>
+    {% endif %}
+</div>
